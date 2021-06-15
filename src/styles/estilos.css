@@ -1,0 +1,213 @@
+/* COMUNES */
+h1, h3{
+    text-align: center;
+}
+
+input{
+    display: block;
+    width: 100%;
+    padding:10px;
+    margin:5px 0;
+    border-radius: 5px;
+}
+
+       /* linea gris */
+.perf-header, .perf-input-buscador, .perf-info-datos-gral-editarPerfil, hr, 
+.inicio-container, .inicio-form-user, .inicio-form-passwd,
+.reg-container, .reg-input{
+    border: 1px solid lightgray;
+}
+
+/* INDEX */
+
+.inicio-container{
+    /* background-color:#ff9; */
+    padding:30px;
+    padding-top: 0;
+    width: 350px;
+    margin-top: 50px;
+    /* margin: 100px auto; */
+}
+
+.inicio-titulo{
+    padding: 12px
+}
+
+.body-inicio{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.inicio-form-boton{
+    background-color: #3498DB ;
+    color:white;
+    margin: 10px 0;
+    border: none;
+}
+
+/* REGISTRO */
+
+.body-registro{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.reg-container{
+    width: 350px;
+    padding: 0px 35px 35px;
+
+}
+
+.reg-form-boton{
+    background-color: #3498DB ;
+    color:white;
+    margin: 14px 0;
+    border: none;
+}
+
+.reg-form{
+    background-color:#fff;
+    /* padding:30px;
+    width: 30%;
+    margin: 50px auto; */
+}
+
+/* PERFIL */
+
+
+.perf-header{
+    position: sticky;
+    top: 0;
+    width:  100%;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12%;
+}
+
+.perf-info-datos-list-publicaciones, 
+.perf-info-datos-list-seguidores{
+    margin-right: 40px;
+}
+
+.perf-info-datos-gral-nomUser{
+    margin: 0;
+}
+
+.perf-info-datos-gral{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.perf-info-datos-gral-config{
+    margin-left: 5px;
+    height:40px;
+    width: 40px;
+    background-color:transparent;
+    
+}
+
+.perf-info-datos-gral-editarPerfil{
+    margin-top: 5px;
+    margin-left: 20px;
+    height: 30px;
+    background-color:transparent;
+}
+
+.perf-info-datos-list{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.texto{
+    font-size: 40px;
+}
+
+
+.perf-container{
+    margin: 0 10%;
+    padding: 30px 20px 0;
+}
+
+/* .perfil{
+    display:flex;
+    flex-direction: column;
+} */
+
+.perf-info-foto{
+    flex: 1 1 100px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.perf-info-foto-img{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    min-width: 150px;
+}
+
+.perf-info-datos{
+    flex: 1 1 400px;
+}
+
+.perf-info{
+    margin-bottom: 44px;
+    height: 150px;
+    /* border: 1px solid black; */
+    display: flex;
+}
+
+/* .perfil{
+    background-color:white;
+    display: flex;
+    justify-content:center;
+    border: 1px solid black;
+} */
+
+.perf-header-iconos{
+    min-width: 150px;
+    display: flex;
+}
+
+.perf-header-logo{
+    min-width: 150px;
+    font-weight: 800;
+    font-size: 25px;
+    
+}
+
+.perf-icon{
+    height:30px;
+    width: 30px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    min-width: 30px;
+}
+
+.perf-header-buscador{
+    min-width: 150px;
+}
+.perf-input-buscador{
+    padding: 5px;
+    border-radius : 2px;
+}
+
+
+.otc{
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
