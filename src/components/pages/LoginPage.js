@@ -27,7 +27,7 @@ const LoginPage = () => {
 
     return (
       
-        <body className="body-inicio">
+        <div className="body-inicio">
         <div className="inicio-container">
           <div className="inicio-titulo">
             <h1>Instagram</h1>
@@ -48,7 +48,7 @@ const LoginPage = () => {
             <h5>Error</h5>
           </div>
         </div>
-      </body>
+      </div>
     )
 }
 

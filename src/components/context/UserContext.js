@@ -1,19 +1,34 @@
-import { createContext } from "react";
+import React, { Children, createContext, useContext, useState } from 'react'
 
-const userContext = createContext();
 
-const data = {user,login,logout,isLogged}
+const UserConetxt = createContext()
 
-const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
-  useEffect(() => {
-    try {
-      localStorage.setItem("user", JSON.stringify(user));
-    } catch (error) {
-      localStorage.removeItem("user");
-      console.log(error);
+const UserProvider = ({children}) => {
+
+  const [user, setUser] = useState()
+
+  const contextValue = {
+    user,
+    login(){
+      setUser({
+        id:1,
+        name: 'pedro'
+      })
+    },
+    logout(){
+      setUser(null)
+    },
+    isLogged(){
+      return !!user
     }
-  }, [user]);
+  }
 
-  
+  return (
+    <UserConetxt.Provider value={contextValue}>
+      {children}
+    </UserConetxt.Provider>
+  )
+}
+
+export {UserProvider}
+export default UserConetxt

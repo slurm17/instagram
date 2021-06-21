@@ -6,7 +6,7 @@ import '../../styles/estilos.css'
 const PerfilPage = () => {
   return ( 
     <>
-      <body className="body-perfil">
+      <div className="body-perfil">
         <div className="perf-header">
           <div className="perf-header-logo">Instagram</div>
           <div className="perf-header-buscador">
@@ -69,7 +69,7 @@ const PerfilPage = () => {
             aspernatur eaque.
           </label>
         </div>
-      </body>
+      </div>
     </>
   );
 };

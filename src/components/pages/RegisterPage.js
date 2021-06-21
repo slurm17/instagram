@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
   return (
-    <body className="body-registro">
+    <div className="body-registro">
       <div className="reg-container"> 
         <div className="reg-titulo">
           <h1>Instagram</h1>
@@ -45,7 +45,7 @@ const RegisterPage = () => {
         </form>
       </div>
       <script src="codigo.js"></script>
-    </body>
+    </div>
   );
 };
 
