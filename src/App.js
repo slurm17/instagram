@@ -1,12 +1,11 @@
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import LoginPage from "./components/pages/LoginPage";
-import PerfilPage from "./components/pages/PerfilPage";
-import RegisterPage from "./components/pages/RegisterPage";
+import { UserProvider } from "./components/context/UserContext";
 import AppRouter from "./components/routes/AppRouter";
 
 function App() {
   return (
-    <AppRouter/>
+    <UserProvider>
+      <AppRouter/>
+    </UserProvider>
   );
 }
 

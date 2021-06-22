@@ -1,11 +1,15 @@
 import React, { Children, createContext, useContext, useState } from 'react'
 
 
-const UserConetxt = createContext()
+const UserContext = createContext()
 
 const UserProvider = ({children}) => {
 
-  const [user, setUser] = useState()
+  const [user, setUser] = useState({ //MAL
+    id:1,
+    name: 'pedro'
+  })
+  // const [user, setUser] = useState(null)
 
   const contextValue = {
     user,
@@ -24,11 +28,11 @@ const UserProvider = ({children}) => {
   }
 
   return (
-    <UserConetxt.Provider value={contextValue}>
+    <UserContext.Provider value={contextValue}>
       {children}
-    </UserConetxt.Provider>
+    </UserContext.Provider>
   )
 }
 
 export {UserProvider}
-export default UserConetxt
+export default UserContext
