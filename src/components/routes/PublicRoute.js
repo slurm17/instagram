@@ -4,11 +4,12 @@ import UserContext from '../context/UserContext'
 
 const PublicRoute = ({component: Component, ...rest}) => {
 
-    const{isLogged} = useContext(UserContext)
+    const {isLogged} = useContext(UserContext)
+    // const isLogged = true
 
     return (
         <Route {...rest}>
-            {isLogged?<Redirect to="/profile"/>:<Component/>}
+            {() => isLogged()?<Redirect to="/profile"/>:<Component/>}
         </Route>
     )
 }

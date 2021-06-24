@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import foto from "../../img/cosmo.jpg";
 import '../../styles/normalize.css'
 import '../../styles/estilos.css'
+import UserContext from "../context/UserContext";
 
 const PerfilPage = () => {
+  const {user, logout} = useContext(UserContext) 
   return ( 
     <>
       <div className="body-perfil">
@@ -20,7 +22,7 @@ const PerfilPage = () => {
             <div className="perf-icon home">H</div>
             <div className="perf-icon direct">D</div>
             <div className="perf-icon explore">E</div>
-            <div className="perf-icon activity">A</div>
+            <button className="perf-icon activity" onClick={()=>logout()}>A</button>
             <div className="perf-icon perfil">P</div>
           </div>
         </div>
@@ -31,7 +33,7 @@ const PerfilPage = () => {
             </div>
             <div className="perf-info-datos">
               <div className="perf-info-datos-gral">
-                <h1 className="perf-info-datos-gral-nomUser">cosmo1992</h1>
+                <h1 className="perf-info-datos-gral-nomUser">{user.realName}</h1>
                 <button className="btn perf-info-datos-gral-editarPerfil">
                   Editar perfil
                 </button>
@@ -41,8 +43,8 @@ const PerfilPage = () => {
                 <li className="perf-info-datos-list-publicaciones">
                   3 publicaciones
                 </li>
-                <li className="perf-info-datos-list-seguidores">250 seguidores</li>
-                <li className="perf-info-datos-list-seguidos">355 seguidos</li>
+                <li className="perf-info-datos-list-seguidores">{user.folowers} seguidores</li>
+                <li className="perf-info-datos-list-seguidos">{user.folowing} seguidos</li>
               </ul>
             </div>
           </div>
