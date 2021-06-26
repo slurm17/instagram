@@ -1,12 +1,30 @@
-import React from "react";
-import '../../styles/normalize.css'
-import '../../styles/estilos.css'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import "../../styles/normalize.css";
+import "../../styles/estilos.css";
+import { Link } from "react-router-dom";
+import campos from "./helper/campos";
+import routes from "../routes/helper/routes";
 
 const RegisterPage = () => {
+  const [newUser, setNewUser] = useState({
+    email: "",
+    name: "",
+    lastName: "",
+    passwd: "",
+  });
+
+  const register = () => {};
+
+  const handleOnChange = (event, campo) => {
+    setNewUser({
+      ...newUser,
+      [campo]: event.target.value,
+    });
+  };
+
   return (
     <div className="body-registro">
-      <div className="reg-container"> 
+      <div className="reg-container">
         <div className="reg-titulo">
           <h1>Instagram</h1>
           <h3>Registrate para ver fotos y videos de tus amigos</h3>
@@ -16,30 +34,38 @@ const RegisterPage = () => {
             type="text"
             className="reg-form-email reg-input"
             placeholder="correo electrónico"
+            onChange={(e) => handleOnChange(e, "email")}
           />
           <input
             type="text"
             className="reg-form-nombre reg-input"
-            placeholder="nombre completo"
+            placeholder="nombre/s"
+            onChange={(e) => handleOnChange(e, "name")}
           />
           <input
             type="text"
             className="reg-form-nombre reg-input"
-            placeholder="nombre completo"
+            placeholder="apellido/s"
+            onChange={(e) => handleOnChange(e, "lastName")}
           />
-          <input
+          {/* <input
             type="text"
             className="reg-form-usuario reg-input"
             placeholder="nombre de usuario"
-          />
-          <input
-            type="password"
-            className="reg-form-passwd reg-input"
-            placeholder="contraseña"
-          />
-          <input type="submit" className="reg-form-boton" value="Registrarme" />
+            onChange={(e)=>handleOnChange(e,'nameUser')}
+          /> */}
+          <div>
+            <input
+              type="password"
+              className="reg-form-passwd reg-input"
+              placeholder="contraseña"
+              onChange={(e) => handleOnChange(e, campos.passwd)}
+            />
+            <button>V</button>
+          </div>
+          <input type="button" className="reg-form-boton" value="Registrarme" />
           <label className="ntc">¿Tienes una cuenta?</label>
-          <Link className="reg" to="/login">
+          <Link className="reg" to={routes.login}>
             Inicia sesión
           </Link>
         </form>

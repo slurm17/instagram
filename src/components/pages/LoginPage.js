@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../../styles/normalize.css'
 import '../../styles/estilos.css'
 import UserContext from '../context/UserContext'
-
+import campos from './helper/campos'
 
 const LoginPage = () => {
 
@@ -32,9 +32,9 @@ const LoginPage = () => {
           </div>
           <form className="inicio-form">
             <input type="text" className="inicio-form-user" placeholder="correo electrónico" 
-            onChange={(e)=>handleOnChange(e,'email')}/>
+            onChange={(e)=>handleOnChange(e,campos.email)}/>
             <input type="password" className="inicio-form-passwd" placeholder="contraseña" 
-            onChange={(e)=>handleOnChange(e,'passwd')}/>
+            onChange={(e)=>handleOnChange(e,campos.passwd)}/>
             <input type="button" className="inicio-form-boton" value="Iniciar sesión" 
             onClick={()=>login(email,passwd)}/>
             <label className="ntc">¿No tienes cuenta?</label>
