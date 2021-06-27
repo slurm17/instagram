@@ -6,7 +6,9 @@
       "passwd":"asd123",
       "realName": "Cosmo PM",
       "folowers": 1235,
-      "folowing": 323
+      "folowing": 323,
+      "posts": 0,
+      "profileIMG": "https://i.imgur.com/NTmTX1P.jpeg"
     },
     {
       "id":2,
@@ -14,7 +16,9 @@
       "passwd":"asd1234",
       "realName": "Eric Busten",
       "folowers": 5433,
-      "folowing": 115
+      "folowing": 115,
+      "posts":0,
+      "profile" : "https://i.imgur.com/NTmTX1P.jpeg"
     }
   ],
   "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/normalize.css";
 import "../../styles/estilos.css";
+import './RegisterPage.css'
 import { Link } from "react-router-dom";
 import campos from "./helper/campos";
 import routes from "../routes/helper/routes";

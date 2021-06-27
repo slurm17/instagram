@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/normalize.css'
 import '../../styles/estilos.css'
+import './LoginPage.css'
 import UserContext from '../context/UserContext'
 import campos from './helper/campos'
 

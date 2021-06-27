@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import foto from "../../img/cosmo.jpg";
 import '../../styles/normalize.css'
 import '../../styles/estilos.css'
+import './PerfilPage.css'
 import UserContext from "../context/UserContext";
 
 const PerfilPage = () => {
-  const {user, logout} = useContext(UserContext) 
-  return ( 
+  const { user, logout } = useContext(UserContext)
+  return (
     <>
       <div className="body-perfil">
         <div className="perf-header">
@@ -22,14 +23,14 @@ const PerfilPage = () => {
             <div className="perf-icon home">H</div>
             <div className="perf-icon direct">D</div>
             <div className="perf-icon explore">E</div>
-            <button className="perf-icon activity" onClick={()=>logout()}>A</button>
+            <button className="perf-icon activity" onClick={() => logout()}>A</button>
             <div className="perf-icon perfil">P</div>
           </div>
         </div>
         <div className="perf-container">
           <div className="perf-info">
             <div className="perf-info-foto">
-              <img className="perf-info-foto-img" src={foto}alt="" />
+              <button className="btn"><img className="perf-info-foto-img" src={foto} alt="" /></button>
             </div>
             <div className="perf-info-datos">
               <div className="perf-info-datos-gral">
