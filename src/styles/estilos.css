@@ -11,7 +11,7 @@ input{
     border-radius: 5px;
 }
 
-       /* linea gris */
+/* linea gris */
 .perf-header, .perf-input-buscador, .perf-info-datos-gral-editarPerfil, hr, 
 .inicio-container, .inicio-form-user, .inicio-form-passwd,
 .reg-container, .reg-input{
@@ -20,13 +20,13 @@ input{
 
 /* INDEX */
 
-.inicio-container{
-    /* background-color:#ff9; */
+/* .inicio-container{
+    // background-color:#ff9; 
     padding:30px;
     padding-top: 0;
     width: 350px;
     margin-top: 50px;
-    /* margin: 100px auto; */
+    // margin: 100px auto; 
 }
 
 .inicio-titulo{
@@ -44,11 +44,11 @@ input{
     color:white;
     margin: 10px 0;
     border: none;
-}
+} */
 
 /* REGISTRO */
 
-.body-registro{
+/*.body-registro{
     display: flex;
     justify-content: center;
     padding: 40px;
@@ -69,15 +69,15 @@ input{
 
 .reg-form{
     background-color:#fff;
-    /* padding:30px;
-    width: 30%;
-    margin: 50px auto; */
-}
+    // padding:30px;
+    //width: 30%;
+    //margin: 50px auto; 
+}*/
 
 /* PERFIL */
 
 
-.perf-header{
+/*.perf-header{
     position: sticky;
     top: 0;
     width:  100%;
@@ -135,10 +135,10 @@ input{
     padding: 30px 20px 0;
 }
 
-/* .perfil{
-    display:flex;
-    flex-direction: column;
-} */
+// .perfil{
+//    display:flex;
+//    flex-direction: column;
+//} 
 
 .perf-info-foto{
     flex: 1 1 100px;
@@ -161,16 +161,16 @@ input{
 .perf-info{
     margin-bottom: 44px;
     height: 150px;
-    /* border: 1px solid black; */
+    // border: 1px solid black; 
     display: flex;
 }
 
-/* .perfil{
-    background-color:white;
-    display: flex;
-    justify-content:center;
-    border: 1px solid black;
-} */
+// .perfil{
+//    background-color:white;
+//    display: flex;
+//    justify-content:center;
+//    border: 1px solid black;
+//} 
 
 .perf-header-iconos{
     min-width: 150px;
@@ -201,13 +201,13 @@ input{
 .perf-input-buscador{
     padding: 5px;
     border-radius : 2px;
-}
+}*/
 
 
-.otc{
+ /* .otc{
     display: block;
     margin-bottom: 5px;
-}
+}  */
 
 
 

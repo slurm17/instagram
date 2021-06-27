@@ -1,0 +1,25 @@
+.body-registro{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.reg-container{
+    width: 350px;
+    padding: 0px 35px 35px;
+
+}
+
+.reg-form-boton{
+    background-color: #3498DB ;
+    color:white;
+    margin: 14px 0;
+    border: none;
+}
+
+.reg-form{
+    background-color:#fff;
+    /* padding:30px;
+    //width: 30%;
+    //margin: 50px auto; */
+}
