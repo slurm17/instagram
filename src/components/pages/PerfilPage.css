@@ -10,7 +10,15 @@
     padding: 0 12%;
 }
 
-p ~ span {}
+.body-perfil{
+    border: 1px solid black;
+}
+
+.posteos{
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px, 150px;
+}
 
 .perf-info-foto > .btn {
     background: none;

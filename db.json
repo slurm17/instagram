@@ -1,27 +1,41 @@
 {
-  "users":[
+  "users": [
     {
-      "id":1,
-      "email" :"cosmo@gmail.com",
-      "passwd":"asd123",
-      "realName": "Cosmo PM",
+      "id": 1,
+      "email": "cosmo@gmail.com",
+      "passwd": "asd123",
+      "name": "Cosmo PM",
       "folowers": 1235,
       "folowing": 323,
       "posts": 0,
       "profileIMG": "https://i.imgur.com/NTmTX1P.jpeg"
     },
     {
-      "id":2,
-      "email" :"eric@gmail.com",
-      "passwd":"asd1234",
-      "realName": "Eric Busten",
+      "id": 2,
+      "email": "eric@gmail.com",
+      "passwd": "asd1234",
+      "name": "Eric Busten",
       "folowers": 5433,
       "folowing": 115,
-      "posts":0,
-      "profile" : "https://i.imgur.com/NTmTX1P.jpeg"
+      "posts": 0,
+      "profileIMG": "https://i.imgur.com/NTmTX1P.jpeg"
     }
   ],
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

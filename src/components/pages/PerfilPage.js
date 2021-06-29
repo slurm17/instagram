@@ -7,6 +7,7 @@ import UserContext from "../context/UserContext";
 
 const PerfilPage = () => {
   const { user, logout } = useContext(UserContext)
+  const src = `https://i.blogs.es/594843/chrome/450_1000.jpg`
   return (
     <>
       <div className="body-perfil">
@@ -30,11 +31,11 @@ const PerfilPage = () => {
         <div className="perf-container">
           <div className="perf-info">
             <div className="perf-info-foto">
-              <button className="btn"><img className="perf-info-foto-img" src={foto} alt="" /></button>
+              <button className="btn"><img className="perf-info-foto-img" src={user.profileIMG} alt="" /></button>
             </div>
             <div className="perf-info-datos">
               <div className="perf-info-datos-gral">
-                <h1 className="perf-info-datos-gral-nomUser">{user.realName}</h1>
+                <h1 className="perf-info-datos-gral-nomUser">{user.name}</h1>
                 <button className="btn perf-info-datos-gral-editarPerfil">
                   Editar perfil
                 </button>
@@ -49,28 +50,9 @@ const PerfilPage = () => {
               </ul>
             </div>
           </div>
-        </div>
-        <div>
-          <label className="texto">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
-            provident enim id illum. Eos, eligendi voluptatum tempora sapiente,
-            dolor, repellendus inventore suscipit fuga quasi similique unde
-            ipsam expedita voluptate quisquam. Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Debitis voluptatem aliquid quos. Quis
-            quos quod dolorum, minima eos hic totam esse perferendis libero
-            corrupti sunt cupiditate distinctio repudiandae laborum nisi! Lorem
-            ipsum dolor sit, amet consectetur adipisicing elit. Veniam magnam
-            maxime aut reprehenderit assumenda est saepe porro repellat pariatur
-            at eos ex fuga, quod cumque non, ipsum veritatis iusto. Quis. Lorem
-            ipsum, dolor sit amet consectetur adipisicing elit. Dicta ratione
-            deleniti illo corporis, at nulla ipsam quibusdam ipsum officia
-            animi, eligendi amet magnam obcaecati consectetur cum neque sed
-            doloribus. Soluta! Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Provident, reprehenderit inventore. Aut nihil
-            temporibus reiciendis odio accusamus ullam sit blanditiis, tempore
-            quo reprehenderit doloribus quis voluptatem neque. Soluta,
-            aspernatur eaque.
-          </label>
+          <div className="posteos">
+            
+          </div>
         </div>
       </div>
     </>

@@ -22,7 +22,8 @@ const UserProvider = ({ children }) => {
             else return res;
           })
           .then((res) => {
-            if (res.data[0].passwd !== passwd) throw new Error("La contraseña no es correcta");
+            // console.log(res.data.find(r=>r.passwd==passwd));
+            if (!res.data.find(r=>r.passwd==passwd)) throw new Error("La contraseña no es correcta");
             else setUser(res.data[0]);
           });
       } catch (error) {
