@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/normalize.css";
-import "../../styles/estilos.css";
-import "./RegisterPage.css";
+import "../../styles/estilo.css";
 import { Link, useHistory } from "react-router-dom";
 import campos from "./helper/campos";
 import routes from "../routes/helper/routes";
@@ -60,7 +58,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="body-registro">
+    <main className="register">
       <div className="reg-container">
         <div className="reg-titulo">
           <h1>Instagram</h1>
@@ -69,40 +67,34 @@ const RegisterPage = () => {
         <form className="reg-form">
           <input
             type="text"
-            className="reg-form-email reg-input"
+            className="reg-email"
             placeholder="correo electrónico"
             onChange={(e) => handleOnChange(e, "email")}
           />
           <input
             type="text"
-            className="reg-form-nombre reg-input"
+            className="reg-nombre"
             placeholder="nombre/s"
             onChange={(e) => handleOnChange(e, "name")}
           />
           <input
             type="text"
-            className="reg-form-nombre reg-input"
+            className="reg-apellido"
             placeholder="apellido/s"
             onChange={(e) => handleOnChange(e, "lastName")}
           />
-          {/* <input
-            type="text"
-            className="reg-form-usuario reg-input"
-            placeholder="nombre de usuario"
-            onChange={(e)=>handleOnChange(e,'nameUser')}
-          /> */}
           <div>
             <input
               type="password"
-              className="reg-form-passwd reg-input"
+              className="reg-passwd"
               placeholder="contraseña"
               onChange={(e) => handleOnChange(e, campos.passwd)}
             />
-            <button>V</button>
+            {/* <button>V</button> */}
           </div>
           <input
             type="button"
-            className="reg-form-boton"
+            className="reg-boton"
             value="Registrarme"
             onClick={() => register()}
           />
@@ -113,7 +105,7 @@ const RegisterPage = () => {
         </form>
       </div>
       <script src="codigo.js"></script>
-    </div>
+    </main>
   );
 };
 

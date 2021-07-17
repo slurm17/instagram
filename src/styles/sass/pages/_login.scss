@@ -1,0 +1,31 @@
+@import '../fx/gray-line';
+@import '../fx/blue-button';
+
+.login{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.log-container{
+    /* background-color:#ff9; */
+    @include gray-line();
+    padding:30px;
+    padding-top: 0;
+    width: 350px;
+    margin-top: 50px;
+    /* margin: 100px auto; */
+}
+
+.log-boton{
+    @include blue-button();
+}
+
+.log-form{
+    input{
+        @include gray-line();
+    }
+}
+
+.log-titulo{
+    padding: 12px
+}
