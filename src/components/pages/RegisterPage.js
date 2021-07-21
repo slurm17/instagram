@@ -4,6 +4,9 @@ import { Link, useHistory } from "react-router-dom";
 import campos from "./helper/campos";
 import routes from "../routes/helper/routes";
 import axios from "axios";
+import services from "../../services/services";
+
+const {register} = services;
 
 const RegisterPage = () => {
   const [newUser, setNewUser] = useState({
@@ -15,21 +18,18 @@ const RegisterPage = () => {
 
   const history = useHistory()
 
-  async function register() {
+  const registro = () => {
+      const result = register(newUser);
+      console.log(result)
+  }
+
+  async function register2() {
     try {
       await axios
         .get("http://localhost:3000/users", {
           params: {
             email: newUser.email,
           },
-        })
-        .then((res) => {
-          console.log(res);
-          // if (res.data.length) throw new Error("El correo ya está registrado");
-          // if (newUser.email == "") throw new Error("Debe ingresar un email");
-          // if (newUser.name == "") throw new Error("Debe ingresar un nombre");
-          // if (newUser.lastName == "") throw new Error("Debe ingresar un apellido");
-          // if (newUser.passwd == "") throw new Error("Debe ingresar una contraseña");
         })
         .then(() => {
           axios.post("http://localhost:3000/users", {
@@ -96,7 +96,7 @@ const RegisterPage = () => {
             type="button"
             className="reg-boton"
             value="Registrarme"
-            onClick={() => register()}
+            onClick={() => registro(newUser)}
           />
           <label className="ntc">¿Tienes una cuenta?</label>
           <Link className="reg" to={routes.login}>
