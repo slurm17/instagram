@@ -7,6 +7,7 @@ import emailExist from "../../services/existEmail";
 import postUser from "../../services/postUser";
 // import servicios from "../../services/servicios";
 
+
 // const {register} = servicios();
 const RegisterPage = () => {
   const history = useHistory();
@@ -86,12 +87,14 @@ const RegisterPage = () => {
             onChange={(e) => handleOnChange(e, "lastName")}
           />
           <input
+
             type="password"
             className="reg-passwd"
             placeholder="contraseña"
             value={newUser.passwd}
             required
             onChange={(e) => handleOnChange(e, campos.passwd)}
+
           />
           <input type="submit" className="reg-boton" value="Registrarse"/>
           <label className="ntc">¿Tienes una cuenta?</label>
