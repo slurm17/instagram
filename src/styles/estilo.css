@@ -359,6 +359,10 @@ input {
   border-radius: 5px;
 }
 
+input:focus {
+  background-color: lightgray;
+}
+
 .register {
   display: -webkit-box;
   display: -ms-flexbox;
