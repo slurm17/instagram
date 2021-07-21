@@ -3,9 +3,13 @@ import "../../styles/estilo.css";
 import { Link, useHistory } from "react-router-dom";
 import campos from "./helper/campos";
 import routes from "../routes/helper/routes";
-import axios from "axios";
+import emailExist from "../../services/existEmail";
+import postUser from "../../services/postUser";
+// import servicios from "../../services/servicios";
 
+// const {register} = servicios();
 const RegisterPage = () => {
+  const history = useHistory();
   const [newUser, setNewUser] = useState({
     email: "",
     name: "",
@@ -13,49 +17,40 @@ const RegisterPage = () => {
     passwd: "",
   });
 
-  const history = useHistory()
+  const validar = (e, campo) =>{
+    
+  }
 
-  async function register() {
+  const handleOnChange = (e, campo) => {
+    setNewUser({
+      ...newUser,
+      [campo]: e.target.value,
+    });
+
+    validar(e,campo)
+  };
+
+  async function register(e) {
+    e.preventDefault();
     try {
-      await axios
-        .get("http://localhost:3000/users", {
-          params: {
-            email: newUser.email,
-          },
-        })
+      emailExist(newUser.email)
         .then((res) => {
-          console.log(res);
-          // if (res.data.length) throw new Error("El correo ya está registrado");
-          // if (newUser.email == "") throw new Error("Debe ingresar un email");
-          // if (newUser.name == "") throw new Error("Debe ingresar un nombre");
-          // if (newUser.lastName == "") throw new Error("Debe ingresar un apellido");
-          // if (newUser.passwd == "") throw new Error("Debe ingresar una contraseña");
+          // console.log(res.data.length);
+          if (!!res.data.length) {
+            alert('email ya registrado')
+            throw 'email ya registrado'
+          }
+          console.log("verificar()");
         })
         .then(() => {
-          axios.post("http://localhost:3000/users", {
-            email: newUser.email,
-            name: `${newUser.name} ${newUser.lastName}`,
-            passwd: newUser.passwd,
-            folowers: 0,
-            folowing: 0,
-            posts: 0,
-            profileIMG: `https://i.imgur.com/NTmTX1P.jpeg`,
-          },
-          alert("registro exitoso"),
-          history.push('/login')
-          );
+          postUser(newUser);
+          history.push("/login");
+          alert("registro exitoso");
         });
     } catch (error) {
       return console.error(error);
     }
   }
-
-  const handleOnChange = (event, campo) => {
-    setNewUser({
-      ...newUser,
-      [campo]: event.target.value,
-    });
-  };
 
   return (
     <main className="register">
@@ -64,40 +59,41 @@ const RegisterPage = () => {
           <h1>Instagram</h1>
           <h3>Registrate para ver fotos y videos de tus amigos</h3>
         </div>
-        <form className="reg-form">
+        <form onSubmit={(e) => register(e)} className="reg-form">
           <input
             type="text"
             className="reg-email"
             placeholder="correo electrónico"
+            value={newUser.email}
+            required
             onChange={(e) => handleOnChange(e, "email")}
+            onBlur={(e)=> validar(e,"email")}
           />
           <input
             type="text"
             className="reg-nombre"
             placeholder="nombre/s"
+            value={newUser.name}
+            required
             onChange={(e) => handleOnChange(e, "name")}
           />
           <input
             type="text"
             className="reg-apellido"
             placeholder="apellido/s"
+            value={newUser.lastName}
+            required
             onChange={(e) => handleOnChange(e, "lastName")}
           />
-          <div>
-            <input
-              type="password"
-              className="reg-passwd"
-              placeholder="contraseña"
-              onChange={(e) => handleOnChange(e, campos.passwd)}
-            />
-            {/* <button>V</button> */}
-          </div>
           <input
-            type="button"
-            className="reg-boton"
-            value="Registrarme"
-            onClick={() => register()}
+            type="password"
+            className="reg-passwd"
+            placeholder="contraseña"
+            value={newUser.passwd}
+            required
+            onChange={(e) => handleOnChange(e, campos.passwd)}
           />
+          <input type="submit" className="reg-boton" value="Registrarse"/>
           <label className="ntc">¿Tienes una cuenta?</label>
           <Link className="reg" to={routes.login}>
             Inicia sesión
