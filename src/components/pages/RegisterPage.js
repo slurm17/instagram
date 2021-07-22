@@ -5,6 +5,7 @@ import campos from "./helper/campos";
 import routes from "../routes/helper/routes";
 import emailExist from "../../services/existEmail";
 import postUser from "../../services/postUser";
+import validar from "../../functions/validar";
 // import servicios from "../../services/servicios";
 
 
@@ -17,9 +18,11 @@ const RegisterPage = () => {
     lastName: "",
     passwd: "",
   });
-
-  const validar = (e, campo) =>{
-    
+  const camposValidados = {
+    email: false,
+    name: false,
+    lastName: false,
+    passwd: false,
   }
 
   const handleOnChange = (e, campo) => {
@@ -28,7 +31,7 @@ const RegisterPage = () => {
       [campo]: e.target.value,
     });
 
-    validar(e,campo)
+    validar(e,campo,camposValidados)
   };
 
   async function register(e) {
@@ -36,7 +39,6 @@ const RegisterPage = () => {
     try {
       emailExist(newUser.email)
         .then((res) => {
-          // console.log(res.data.length);
           if (!!res.data.length) {
             alert('email ya registrado')
             throw 'email ya registrado'
@@ -63,6 +65,7 @@ const RegisterPage = () => {
         <form onSubmit={(e) => register(e)} className="reg-form">
           <input
             type="text"
+            id = "reg-email"
             className="reg-email"
             placeholder="correo electrónico"
             value={newUser.email}

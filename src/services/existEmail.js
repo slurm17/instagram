@@ -6,11 +6,4 @@ export default async function emailExist(email) {
       email: email,
     },
   });
-  // console.log(result.data.length)
-
-  // if (!result.data.length) 
-  // {throw new Error('asdasd')}
-  // else
-  // {return console.log('eso')}
-
 }

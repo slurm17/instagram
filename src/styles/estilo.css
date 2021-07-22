@@ -357,10 +357,15 @@ input {
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;
+  outline: none;
 }
 
-input:focus {
-  background-color: lightgray;
+.invalido {
+  border: 1px solid red !important;
+}
+
+.valido {
+  border: 1px solid green !important;
 }
 
 .register {
