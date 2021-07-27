@@ -1,10 +1,33 @@
-input{
-    display: block;
-    width: 100%;
-    padding:10px;
-    margin:5px 0;
-    border-radius: 5px;
-    outline:none;
-}
+@import "../fx/gray-line";
 
- 
+.form__input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+
+  &--blue {
+    background-color: #3498db;
+    color: #fff;
+    margin: 14px 0;
+    border: none;
+    border-radius: 5px;
+
+    &:disabled{
+      background-color: #3498db81;
+    }
+
+  }
+
+  &--gray {
+    @include gray-line;
+    margin: 5px 0;
+    border-radius: 2px;
+  
+    &:focus {
+      border: 1px solid gray;
+    }
+  }
+
+  
+}

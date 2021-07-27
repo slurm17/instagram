@@ -21,7 +21,8 @@ const LoginPage = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("sumbit");
   };
 
@@ -31,34 +32,32 @@ const LoginPage = () => {
         <div className="log-titulo">
           <h1>Instagram</h1>
         </div>
-        <form className="log-form" onSubmit={handleSubmit}>
+        <form className="log-form" onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
-            className="user"
+            className="form__input form__input--gray"
             placeholder="correo electrónico"
             onChange={(e) => handleOnChange(e, campos.email)}
           />
           <input
             type="password"
-            className="passwd"
+            className="form__input form__input--gray"
             placeholder="contraseña"
             onChange={(e) => handleOnChange(e, campos.passwd)}
           />
           <input
             type="button"
-            className="log-boton"
+            className="form__input form__input--blue"
             value="Iniciar sesión"
             onClick={() => login(email, passwd)}
           />
-          <label className="ntc">¿No tienes cuenta?</label>
-          <Link className="reg" to="/register">
-            Regístrate
-          </Link>
-          {/* <Link to="/profile">perfil</Link> */}
+          <p>
+            ¿No tienes cuenta?
+            <Link className="reg" to="/register">
+              Regístrate
+            </Link>
+          </p>
         </form>
-        {/* <div>
-            <h5>Error</h5>
-          </div> */}
       </div>
     </main>
   );

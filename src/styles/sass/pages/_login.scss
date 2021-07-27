@@ -1,5 +1,4 @@
 @import '../fx/gray-line';
-@import '../fx/blue-button';
 
 .login{
     display: flex;
@@ -14,16 +13,6 @@
     width: 350px;
     margin-top: 50px;
     /* margin: 100px auto; */
-}
-
-.log-boton{
-    @include blue-button();
-}
-
-.log-form{
-    input{
-        @include gray-line();
-    }
 }
 
 .log-titulo{

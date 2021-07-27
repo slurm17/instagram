@@ -1,57 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/estilo.css";
 import { Link, useHistory } from "react-router-dom";
 import campos from "./helper/campos";
 import routes from "../routes/helper/routes";
-import emailExist from "../../services/existEmail";
-import postUser from "../../services/postUser";
-import validar from "../../functions/validar";
-// import servicios from "../../services/servicios";
+import {
+  validar,
+  resetCampos,
+  valido,
+  emailYaRegistrado
+} from "../../functions/validar";
+import { emailExist, postUser } from "../../services/registro";
+import Error from "../messages/Error";
 
-
-// const {register} = servicios();
 const RegisterPage = () => {
   const history = useHistory();
+  const [mgeError, setMgeError] = useState("Error");
+  const [error, setError] = useState(false);
   const [newUser, setNewUser] = useState({
     email: "",
     name: "",
     lastName: "",
     passwd: "",
   });
-  const camposValidados = {
-    email: false,
-    name: false,
-    lastName: false,
-    passwd: false,
-  }
+
+  useEffect(() => {
+    resetCampos();
+    return () => {
+      resetCampos();
+    };
+  }, []);
+
+  const control = (e, campo) => {
+    validar(e, campo);
+    if (valido) {
+      document.getElementById("form__input-button").removeAttribute("disabled");
+    } else {
+      document
+        .getElementById("form__input-button")
+        .setAttribute("disabled", "");
+    }
+  };
 
   const handleOnChange = (e, campo) => {
     setNewUser({
       ...newUser,
       [campo]: e.target.value,
     });
-
-    validar(e,campo,camposValidados)
   };
 
   async function register(e) {
     e.preventDefault();
     try {
-      emailExist(newUser.email)
-        .then((res) => {
-          if (!!res.data.length) {
-            alert('email ya registrado')
-            throw 'email ya registrado'
-          }
-          console.log("verificar()");
-        })
-        .then(() => {
-          postUser(newUser);
-          history.push("/login");
-          alert("registro exitoso");
-        });
+      await emailExist(newUser.email).then(() => {
+        postUser(newUser);
+        history.push("/login");
+        alert("registro exitoso");
+      });
     } catch (error) {
-      return console.error(error);
+      emailYaRegistrado();
+      setError(true);
+      setMgeError(error.mensaje);
+      setTimeout(() => {
+        setError(false);
+      }, 4000);
     }
   }
 
@@ -65,45 +76,64 @@ const RegisterPage = () => {
         <form onSubmit={(e) => register(e)} className="reg-form">
           <input
             type="text"
-            id = "reg-email"
-            className="reg-email"
+            id="reg-email"
+            className="form__input form__input--gray"
             placeholder="correo electrónico"
             value={newUser.email}
             required
             onChange={(e) => handleOnChange(e, "email")}
-            onBlur={(e)=> validar(e,"email")}
+            onKeyUp={(e) => control(e, "email")}
+            onBlur={(e) => control(e, "email")}
           />
           <input
             type="text"
-            className="reg-nombre"
+            id="reg-name"
+            className="form__input form__input--gray"
             placeholder="nombre/s"
             value={newUser.name}
             required
+            autoComplete="off"
             onChange={(e) => handleOnChange(e, "name")}
+            onKeyUp={(e) => control(e, "name")}
+            onBlur={(e) => control(e, "name")}
           />
           <input
             type="text"
-            className="reg-apellido"
+            id="reg-lastName"
+            className="form__input form__input--gray"
             placeholder="apellido/s"
             value={newUser.lastName}
             required
+            autoComplete="off"
             onChange={(e) => handleOnChange(e, "lastName")}
+            onKeyUp={(e) => control(e, "lastName")}
+            onBlur={(e) => control(e, "lastName")}
           />
           <input
-
             type="password"
-            className="reg-passwd"
+            id="reg-passwd"
+            className="form__input form__input--gray"
             placeholder="contraseña"
             value={newUser.passwd}
             required
             onChange={(e) => handleOnChange(e, campos.passwd)}
-
+            onKeyUp={(e) => control(e, "passwd")}
+            onBlur={(e) => control(e, "passwd")}
           />
-          <input type="submit" className="reg-boton" value="Registrarse"/>
-          <label className="ntc">¿Tienes una cuenta?</label>
-          <Link className="reg" to={routes.login}>
-            Inicia sesión
-          </Link>
+          <input
+            type="submit"
+            id="form__input-button"
+            className="form__input form__input--blue "
+            value="Registrarse"
+            disabled
+          />
+          {error && <Error mensaje={mgeError}></Error>}
+          <p>
+            ¿Tienes una cuenta?
+            <Link className="reg" to={routes.login}>
+              Inicia sesión
+            </Link>
+          </p>
         </form>
       </div>
       <script src="codigo.js"></script>
@@ -112,3 +142,4 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+

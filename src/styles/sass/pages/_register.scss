@@ -1,6 +1,7 @@
 @import '../fx/gray-line';
-@import '../fx/blue-button';
-
+/* COMUN
+    .form__input
+*/
 .register{
     display: flex;
     justify-content: center;
@@ -13,17 +14,6 @@
     padding: 0px 35px 35px;
 }
 
-.reg-boton{
-    @include blue-button();
-}
-
-
 .reg-form{
     background-color:#fff;
-    /* padding:30px;
-    //width: 30%;
-    //margin: 50px auto; */
-    input{
-        @include gray-line()
-    }
 }

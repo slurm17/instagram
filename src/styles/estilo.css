@@ -351,23 +351,50 @@ h3 {
   text-align: center;
 }
 
-input {
+.form__input {
   display: block;
   width: 100%;
   padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
   outline: none;
 }
 
+.form__input--blue {
+  background-color: #3498db;
+  color: #fff;
+  margin: 14px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.form__input--blue:disabled {
+  background-color: #3498db81;
+}
+
+.form__input--gray {
+  border: 1px solid lightgray;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+.form__input--gray:focus {
+  border: 1px solid gray;
+}
+
 .invalido {
-  border: 1px solid red !important;
+  border: 2px solid red !important;
 }
 
 .valido {
-  border: 1px solid green !important;
+  border: 2px solid green !important;
 }
 
+.mensaje-error {
+  color: red !important;
+}
+
+/* COMUN
+    .form__input
+*/
 .register {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -384,22 +411,8 @@ input {
   padding: 0px 35px 35px;
 }
 
-.reg-boton {
-  background-color: #3498DB;
-  color: white;
-  margin: 14px 0;
-  border: none;
-}
-
 .reg-form {
   background-color: #fff;
-  /* padding:30px;
-    //width: 30%;
-    //margin: 50px auto; */
-}
-
-.reg-form input {
-  border: 1px solid lightgray;
 }
 
 nav {
@@ -481,17 +494,6 @@ nav {
   width: 350px;
   margin-top: 50px;
   /* margin: 100px auto; */
-}
-
-.log-boton {
-  background-color: #3498DB;
-  color: white;
-  margin: 14px 0;
-  border: none;
-}
-
-.log-form input {
-  border: 1px solid lightgray;
 }
 
 .log-titulo {
