@@ -1,13 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { emailExistente, passwdCoincide } from "../../services/login";
 import "../../styles/estilo.css";
 import UserContext from "../context/UserContext";
+import Error from "../messages/Error";
 import campos from "./helper/campos";
 
 const LoginPage = () => {
   const { login } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [passwd, setPasswd] = useState("");
+  const [mgeError, setMgeError] = useState("Error");
+  const [error, setError] = useState(false);
 
   const handleOnChange = (e, campo) => {
     switch (campo) {
@@ -20,6 +24,23 @@ const LoginPage = () => {
         break;
     }
   };
+
+  const control = async () =>{
+    try {
+      await emailExistente(email)
+          .then(async (result) => {
+            await passwdCoincide(result, passwd);
+            login(result.data[0]);
+          })
+    } catch (error) {
+      setError(true);
+      setMgeError(error.mensaje);
+      setTimeout(() => {
+        setError(false);
+      }, 4000);
+      return console.error(error.mensaje);
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,8 +70,9 @@ const LoginPage = () => {
             type="button"
             className="form__input form__input--blue"
             value="Iniciar sesión"
-            onClick={() => login(email, passwd)}
+            onClick={control}
           />
+          {error && <Error mensaje={mgeError}></Error>}
           <p>
             ¿No tienes cuenta?
             <Link className="reg" to="/register">

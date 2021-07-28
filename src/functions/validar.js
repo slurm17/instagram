@@ -9,9 +9,9 @@ const camposValidados = {
   passwd: false,
 };
 
-const emailYaRegistrado = () => {
-  document.getElementById(`reg-email`).classList.add("invalido");
-  document.getElementById(`reg-email`).classList.remove("valido");
+const emailYaRegistrado = (pag) => {
+  document.getElementById(`${pag}-email`).classList.add("invalido");
+  document.getElementById(`${pag}-email`).classList.remove("valido");
 }
 
 const resetCampos = () => {

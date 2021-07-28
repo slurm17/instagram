@@ -7,7 +7,7 @@ import {
   validar,
   resetCampos,
   valido,
-  emailYaRegistrado
+  emailYaRegistrado,
 } from "../../functions/validar";
 import { emailExist, postUser } from "../../services/registro";
 import Error from "../messages/Error";
@@ -57,7 +57,7 @@ const RegisterPage = () => {
         alert("registro exitoso");
       });
     } catch (error) {
-      emailYaRegistrado();
+      emailYaRegistrado("reg");
       setError(true);
       setMgeError(error.mensaje);
       setTimeout(() => {
@@ -142,4 +142,3 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
-

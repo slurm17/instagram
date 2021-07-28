@@ -1,34 +1,12 @@
-import axios from "axios";
-import React, { Children, createContext, useContext, useState } from "react";
-
+import React, { createContext, useState } from "react";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-
   const [user, setUser] = useState(null);
-
   const contextValue = {
     user,
-    async login(email, passwd) {
-      try {
-        await axios
-          .get("http://localhost:3000/users", {
-            params: {
-              email: email,
-            },
-          })
-          .then((res) => {
-            if (res.data == "") throw new Error("El correo no es válido");
-            else return res;
-          })
-          .then((res) => {
-            // console.log(res.data.find(r=>r.passwd==passwd));
-            if (!res.data.find(r=>r.passwd==passwd)) throw new Error("La contraseña no es correcta");
-            else setUser(res.data[0]);
-          });
-      } catch (error) {
-        return console.error(error);
-      }
+    login(usuario){
+      setUser(usuario)
     },
     logout() {
       setUser(null);
